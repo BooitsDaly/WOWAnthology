@@ -7,17 +7,62 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var races : [Race] = []
+    var tabBarController:UITabBarController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        getRaces()
+        
+        tabBarController = window?.rootViewController as? UITabBarController
+        let navBar = tabBarController?.viewControllers![0] as! UINavigationController
+        let characterVC = navBar.viewControllers.first as! CharacterVC
+        //_ = tabBarController?.viewControllers![1] as! UITabBarController
+        let raceList = Races()
+        characterVC.raceList = raceList
         // Override point for customization after application launch.
         return true
     }
+    func getRaces(){
+        let racesJSON = getDataFromAPI(url: "https://us.api.blizzard.com/data/wow/race/index?namespace=static-us&locale=en_US&access_token=USMvOtydef4NMmy6ijoBb3E6IoSAxsAPrR")["races"]
+        //now call each api for each race information
+        for (_,subJson):(String, JSON) in racesJSON {
+            let idURL = subJson[0]["key"]["href"].stringValue
+            let raceJSON = getDataFromAPI(url: idURL)
+            //get all the values make a Race class
+            let raceid = raceJSON["id"].intValue
+            let name = raceJSON["name"].stringValue
+            let genders = raceJSON["gener_name"]
+            var genderNames: [String] = []
+            for(_,genderSubJSON):(String,JSON) in genders{
+                genderNames[0] = genderSubJSON["male_name"].stringValue
+                genderNames[1] = genderSubJSON["female_name"].stringValue
+            }
+            let factionJSON = raceJSON["faction"]
+            var allFactions : [String] = []
+            for (index,factionSubJSON):(String, JSON) in factionJSON {
+                // Do something you want
+                allFactions[index.count] = factionSubJSON["name"].stringValue
+            }
+            //place race class into Races
+            let race = Race(id: raceid, name: name, genderNames: genderNames, faction: allFactions)
+            races.append(race)
+        }
+    }
+    
+    func getDataFromAPI(url:String)->JSON{
+        let endpoint = URL(string: url)
+        let data = try? Data(contentsOf: endpoint!)
+        return JSON(data!)
+    }
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
