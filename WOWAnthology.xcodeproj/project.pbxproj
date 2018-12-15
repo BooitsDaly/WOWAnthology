@@ -33,6 +33,8 @@
 		68127F6721C5904500B29C9B /* HomeImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68127F6921C5904500B29C9B /* HomeImage.jpg */; };
 		68127F6A21C5904A00B29C9B /* icons8-city-hall-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 68127F6C21C5904A00B29C9B /* icons8-city-hall-30.png */; };
 		68127F6E21C593F100B29C9B /* icons8-home-page-filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 68127F6D21C593F100B29C9B /* icons8-home-page-filled-30.png */; };
+		68127F7021C5B02C00B29C9B /* Bosses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68127F6F21C5B02C00B29C9B /* Bosses.swift */; };
+		68127F7221C5B05E00B29C9B /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68127F7121C5B05E00B29C9B /* Boss.swift */; };
 		685D5D1121C2CDC300BEF8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685D5D1021C2CDC300BEF8B2 /* AppDelegate.swift */; };
 		685D5D1321C2CDC300BEF8B2 /* CharacterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685D5D1221C2CDC300BEF8B2 /* CharacterVC.swift */; };
 		685D5D1521C2CDC300BEF8B2 /* GuildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685D5D1421C2CDC300BEF8B2 /* GuildVC.swift */; };
@@ -120,6 +122,8 @@
 		68127F6821C5904500B29C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Base; path = Base.lproj/HomeImage.jpg; sourceTree = "<group>"; };
 		68127F6B21C5904A00B29C9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/icons8-city-hall-30.png"; sourceTree = "<group>"; };
 		68127F6D21C593F100B29C9B /* icons8-home-page-filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-home-page-filled-30.png"; sourceTree = "<group>"; };
+		68127F6F21C5B02C00B29C9B /* Bosses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bosses.swift; sourceTree = "<group>"; };
+		68127F7121C5B05E00B29C9B /* Boss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
 		685D5D0D21C2CDC300BEF8B2 /* WOWAnthology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOWAnthology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685D5D1021C2CDC300BEF8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		685D5D1221C2CDC300BEF8B2 /* CharacterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVC.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 			children = (
 				68127F0F21C4341E00B29C9B /* Races.swift */,
 				68127F1621C4486600B29C9B /* Race.swift */,
+				68127F6F21C5B02C00B29C9B /* Bosses.swift */,
+				68127F7121C5B05E00B29C9B /* Boss.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -398,6 +404,8 @@
 			files = (
 				68127F1021C4341E00B29C9B /* Races.swift in Sources */,
 				685D5D1521C2CDC300BEF8B2 /* GuildVC.swift in Sources */,
+				68127F7221C5B05E00B29C9B /* Boss.swift in Sources */,
+				68127F7021C5B02C00B29C9B /* Bosses.swift in Sources */,
 				685D5D1121C2CDC300BEF8B2 /* AppDelegate.swift in Sources */,
 				685D5D1321C2CDC300BEF8B2 /* CharacterVC.swift in Sources */,
 				68127F1721C4486600B29C9B /* Race.swift in Sources */,

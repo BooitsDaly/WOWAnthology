@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var races : [Race] = []
+    var bosses : [Boss] = []
     var tabBarController:UITabBarController?
 
 
@@ -53,6 +54,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //place race class into Races
             let race = Race(id: raceid, name: name, genderNames: genderNames, faction: allFactions)
             races.append(race)
+        }
+    }
+    
+    func getBoss(){
+        let bossJSON = getDataFromAPI(url: "https://us.api.blizzard.com/wow/boss/?locale=en_US&access_token=USjuADnycx3uz6Yg2zN7tfDHMhJLItT0IZ")
+        for(_,subJson):(String,JSON) in bossJSON{
+            let name = subJson["name"].stringValue
+            let description = subJson["description"].stringValue
+            //should i display zone information?
+            let zoneid = subJson["zondId"].intValue
+            let availableNormal = subJson["availableInNormalMode"].boolValue
+            let availableHeroic = subJson["availableInHeroicMode"].boolValue
+            let healthNormal = subJson["health"].intValue
+            let healthHeroic = subJson["heroicHealth"].intValue
+            let levelNormal = subJson["health"].intValue
+            let heroicLevel = subJson["heroicLeve"].intValue
+            
+            let boss = Boss(name: name, description: description, zoneid: zoneid, availableNormal: availableNormal, availableHeroic:availableHeroic, healthNormal:healthNormal, healthHeroic:healthHeroic, levelNormal: levelNormal, heroicLevel: heroicLevel)
+            bosses.append(boss)
+            
         }
     }
     
