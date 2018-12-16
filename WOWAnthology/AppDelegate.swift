@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         getRaces()
         
         tabBarController = window?.rootViewController as? UITabBarController
-        let navBar = tabBarController?.viewControllers![0] as! UINavigationController
+        let navBar = tabBarController?.viewControllers![1] as! UINavigationController
         let characterVC = navBar.viewControllers.first as! CharacterVC
         //_ = tabBarController?.viewControllers![1] as! UITabBarController
         let raceList = Races()

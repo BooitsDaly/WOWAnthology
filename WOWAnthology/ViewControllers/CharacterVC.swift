@@ -10,8 +10,9 @@ import UIKit
 
 class CharacterVC: UITableViewController {
 
+    
     @IBOutlet var characterView:UITableView!
-    var change = 0
+    var change = 0;
     var RACES = 0
     var CLASSES = 1
     var ACHIEVEMENTS = 2
@@ -54,7 +55,8 @@ class CharacterVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "raceList", for: indexPath)
         let race = raceList.racesList
-        cell.textLabel?.text = race[indexPath.row].getName()
+        cell.nameText.text = race[indexPath.row].getName()
+        cell.raceImage.image = 
         //cell.textLabel?.text = race[indexPath.row].ge
         cell.accessoryType = .disclosureIndicator
         return cell
